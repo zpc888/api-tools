@@ -11,7 +11,7 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 
 @Configuration(proxyBeanMethods = false)
 public class MockRouter {
-    static final String INTERNAL_API_PREFIX = "/{internalApiPrefix:(?!(?:admin|api)).*}/**";
+    static final String INTERNAL_API_PREFIX = "/{internalApiPrefix:(?!(?:admin|api|mock-api-admin)).*}/**";
     @Bean
     public RouterFunction<ServerResponse> route(MockHandler handler) {
         return RouterFunctions.route(

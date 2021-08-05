@@ -1,13 +1,13 @@
 plugins {
     id 'org.springframework.boot' version '2.5.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id "com.github.spotbugs" version "4.7.0"
+//    id "com.github.spotbugs" version "4.7.0"
     id "com.gorylenko.gradle-git-properties" version "2.3.1"
     id 'java'
     id 'idea'
     id 'eclipse'
-    id 'checkstyle'
-    id 'jacoco'
+//    id 'checkstyle'
+//    id 'jacoco'
     id 'org.springframework.experimental.aot' version '0.10.2-SNAPSHOT'
     id 'org.graalvm.buildtools.native' version '0.9.1'
 }
@@ -23,6 +23,7 @@ configurations {
 }
 
 repositories {
+//    maven { url 'https://repo.spring.io/release' }
     maven { url 'https://repo.spring.io/snapshot' }
     mavenCentral()
 }
@@ -44,7 +45,7 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
 
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -60,7 +61,7 @@ dependencyManagement {
 
 test {
     useJUnitPlatform()
-    finalizedBy jacocoTestReport
+//    finalizedBy jacocoTestReport
 }
 
 bootBuildImage {
@@ -68,10 +69,11 @@ bootBuildImage {
     environment = ['BP_NATIVE_IMAGE': 'true']
 }
 
-checkstyle {
-    configFile = "${rootProject.projectDir}/build-config/checkstyle/checkstyle.xml" as File
-}
+//checkstyle {
+//    configFile = "${rootProject.projectDir}/build-config/checkstyle/checkstyle.xml" as File
+//}
 
+/*
 jacocoTestReport {
     dependsOn test
     reports {
@@ -80,7 +82,7 @@ jacocoTestReport {
         html.enabled true
     }
 }
-check.dependsOn jacocoTestReport
+//check.dependsOn jacocoTestReport
 
 spotbugs {
     ignoreFailures = false
@@ -101,4 +103,5 @@ spotbugsTest {
         html.enabled = true
     }
 }
-check.dependsOn spotbugsMain
+*/
+//check.dependsOn spotbugsMain

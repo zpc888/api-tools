@@ -6,5 +6,5 @@
 <suppressions>
     <!-- Don't check JavaDoc on package-info. -->
     <suppress checks="JavadocStyleCheck" files="package-info.java"/>
-
+    <suppress checks="." files="org[\\/]springframework[\\/]"/>
 </suppressions>
