@@ -1,9 +1,16 @@
 package com.prot.apitool.mock.model.def;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.prot.apitool.mock.dto.UriParsedResult;
+import com.prot.apitool.mock.dto.UriParser;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.http.server.PathContainer;
+import org.springframework.web.reactive.function.server.ServerRequest;
+import org.springframework.web.util.pattern.PathPattern;
+import org.springframework.web.util.pattern.PathPatternParser;
 
 import javax.persistence.*;
 import java.util.List;
@@ -27,4 +34,17 @@ public class MockApi extends AbstractApiResponse implements ISharedApiResponseRe
     @OneToMany(targetEntity = MockApiBranch.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "API_ID", referencedColumnName = "ID")       // nullable = true
     private List<MockApiBranch> conditionalBranches;
+
+    public Pair<Boolean, PathPattern.PathMatchInfo> matchesRequestMethodAndPath(String httpMethod, PathContainer path) {
+        PathPatternParser parser = PathPatternParser.defaultInstance;
+        PathPattern pattern = parser.parse(urlPattern);
+        if (httpMethod.equalsIgnoreCase(this.httpMethod) && pattern.matches(path)) {
+            return Pair.of(Boolean.TRUE, pattern.matchAndExtract(path));
+        }
+        return Pair.of(Boolean.FALSE, null);
+    }
+
+    public UriParsedResult matchRequest(ServerRequest request) {
+        return new UriParser(urlPattern).parseUri(request);
+    }
 }
