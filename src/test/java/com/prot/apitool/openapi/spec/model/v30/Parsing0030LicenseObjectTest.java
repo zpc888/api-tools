@@ -15,13 +15,13 @@ class Parsing0030LicenseObjectTest extends AbstractParsingModelTest {
 
     @Test
     void testParseFromYaml() throws Exception {
-        final String resourceName = "openapi-sepc-model-samples/0030-license-object.yaml";
+        final String resourceName = "openapi-spec-model-samples/0030-license-object.yaml";
         verifyParseYaml(expectedResult, resourceName, LicenseObject.class);
     }
 
     @Test
     void testParseFromJson() throws Exception {
-        final String resourceName = "openapi-sepc-model-samples/0030-license-object.json";
+        final String resourceName = "openapi-spec-model-samples/0030-license-object.json";
         verifyParseJson(expectedResult, resourceName, LicenseObject.class);
     }
 

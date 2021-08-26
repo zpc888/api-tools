@@ -1,7 +1,6 @@
 package com.prot.apitool.openapi.spec.model.v30;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.prot.apitool.openapi.spec.model.anno.CommonMarkSyntax;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -13,10 +12,10 @@ import java.util.Map;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class ServerObject extends SpecExtension implements SpecModel {
+public class ResponseObject extends SpecExtension implements SpecModel {
     @NotNull
-    private String url;
-    @CommonMarkSyntax
     private String description;
-    private Map<String, ServerVariableObject> variables;
+//    private Map<String, ReferableHeaderObject> headers;
+//    private Map<String, MediaTypeObject> content;
+//    private Map<String, ReferableLinkObject> links;
 }

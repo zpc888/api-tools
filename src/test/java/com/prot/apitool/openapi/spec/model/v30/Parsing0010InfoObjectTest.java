@@ -28,13 +28,13 @@ class Parsing0010InfoObjectTest extends AbstractParsingModelTest {
 
     @Test
     void testParseFromYaml() throws Exception {
-        final String resourceName = "openapi-sepc-model-samples/0010-info-object.yaml";
+        final String resourceName = "openapi-spec-model-samples/0010-info-object.yaml";
         verifyParseYaml(expectedResult, resourceName, InfoObject.class);
     }
 
     @Test
     void testParseFromJson() throws Exception {
-        final String resourceName = "openapi-sepc-model-samples/0010-info-object.json";
+        final String resourceName = "openapi-spec-model-samples/0010-info-object.json";
         verifyParseJson(expectedResult, resourceName, InfoObject.class);
     }
 

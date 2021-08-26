@@ -16,13 +16,13 @@ class Parsing0020ContactObjectTest extends AbstractParsingModelTest {
 
     @Test
     void testParseFromYaml() throws Exception {
-        final String resourceName = "openapi-sepc-model-samples/0020-contact-object.yaml";
+        final String resourceName = "openapi-spec-model-samples/0020-contact-object.yaml";
         verifyParseYaml(expectedResult, resourceName, ContactObject.class);
     }
 
     @Test
     void testParseFromJson() throws Exception {
-        final String resourceName = "openapi-sepc-model-samples/0020-contact-object.json";
+        final String resourceName = "openapi-spec-model-samples/0020-contact-object.json";
         verifyParseJson(expectedResult, resourceName, ContactObject.class);
     }
 
