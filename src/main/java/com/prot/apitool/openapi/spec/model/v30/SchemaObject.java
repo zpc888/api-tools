@@ -5,12 +5,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.util.LinkedHashMap;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class ContactObject extends SpecExtension implements SpecModel {
-    private String name;
-    private String url;
-    private String email;
+// TODO: schema itself should be in its own project
+public class SchemaObject extends LinkedHashMap<String, Object> implements SpecModel {
 }

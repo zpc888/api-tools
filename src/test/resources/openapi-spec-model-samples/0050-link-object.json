@@ -1,0 +1,6 @@
+{
+  "operationId": "getUserAddress",
+  "parameters": {
+    "userId": "$request.path.id"
+  }
+}

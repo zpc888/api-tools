@@ -1,7 +1,6 @@
 package com.prot.apitool.openapi.spec.model.v30;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.prot.apitool.openapi.spec.model.anno.CommonMarkSyntax;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -12,14 +11,12 @@ import javax.validation.constraints.NotNull;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class InfoObject extends SpecExtension implements SpecModel {
+public class ParameterObject extends AbstractParameterValueObject {
+    enum InLocation {
+        query, header, path, cookie
+    }
     @NotNull
-    private String title;
-    @CommonMarkSyntax
-    private String description;
-    private String termsOfService;
-    private ContactObject contact;
-    private LicenseObject license;
+    private String name;
     @NotNull
-    private String version;
+    private InLocation in;
 }

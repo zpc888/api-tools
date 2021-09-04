@@ -15,7 +15,7 @@ import java.util.Map;
 public class ResponseObject extends SpecExtension implements SpecModel {
     @NotNull
     private String description;
-//    private Map<String, ReferableHeaderObject> headers;
-//    private Map<String, MediaTypeObject> content;
-//    private Map<String, ReferableLinkObject> links;
+    private Map<String, EitherModelOrReferenceObject<HeaderObject>> headers;
+    private Map<String, MediaTypeObject> content;
+    private Map<String, EitherModelOrReferenceObject<LinkObject>> links;
 }

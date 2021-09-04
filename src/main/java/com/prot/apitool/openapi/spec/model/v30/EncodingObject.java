@@ -5,12 +5,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.util.Map;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class ContactObject extends SpecExtension implements SpecModel {
-    private String name;
-    private String url;
-    private String email;
+public class EncodingObject extends SpecExtension implements SpecModel {
+    private String contentType;
+    private Map<String, EitherModelOrReferenceObject<HeaderObject>> headers;
+    private String style;
+    private Boolean explode;
+    private Boolean allowReserved;
 }

@@ -6,20 +6,19 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class InfoObject extends SpecExtension implements SpecModel {
-    @NotNull
-    private String title;
+public class LinkObject extends SpecExtension implements SpecModel {
+    // exclusive between operationRef and operationId
+    private String operationRef;
+    private String operationId;
+    private Map<String, AnyOrExpressionObject> parameters;
+    private AnyOrExpressionObject requestBody;
     @CommonMarkSyntax
     private String description;
-    private String termsOfService;
-    private ContactObject contact;
-    private LicenseObject license;
-    @NotNull
-    private String version;
+    private ServerObject server;
 }

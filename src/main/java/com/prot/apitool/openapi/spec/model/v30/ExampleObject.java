@@ -6,20 +6,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import javax.validation.constraints.NotNull;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class InfoObject extends SpecExtension implements SpecModel {
-    @NotNull
-    private String title;
+public class ExampleObject extends SpecExtension implements SpecModel {
+    private String summary;
     @CommonMarkSyntax
     private String description;
-    private String termsOfService;
-    private ContactObject contact;
-    private LicenseObject license;
-    @NotNull
-    private String version;
+    // exclusive between value field and externalValue field
+    private AnyObject value;
+    private String externalValue;
 }

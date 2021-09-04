@@ -9,8 +9,6 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class ContactObject extends SpecExtension implements SpecModel {
-    private String name;
-    private String url;
-    private String email;
+public class HeaderObject extends AbstractParameterValueObject {
+    // all traits that are affected by the location MUST be applicable to a location of header (for example, style)
 }

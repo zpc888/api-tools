@@ -7,6 +7,13 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class ReferenceObject implements SpecModel {
+    public ReferenceObject() {
+    }
+
+    public ReferenceObject(String ref) {
+        this.ref = ref;
+    }
+
     @NotNull
     @JsonProperty("$ref")
     private String ref;

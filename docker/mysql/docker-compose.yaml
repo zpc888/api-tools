@@ -1,0 +1,12 @@
+database:
+  image: mysql:5.7.27
+  container_name: api-tool-db
+  command: mysqld --user=root
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_DATABASE: "sandbox"
+    MYSQL_USER: "gz01"
+    MYSQL_PASSWORD: "T0pS3cret"
+    MYSQL_ROOT_PASSWORD: "r00tpw"
+    MYSQL_ALLOW_EMPTY_PASSWORD: "no"
