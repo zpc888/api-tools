@@ -18,8 +18,8 @@ public class ComponentsObject extends SpecExtension implements SpecModel {
     private Map<String, EitherModelOrReferenceObject<ParameterObject>> parameters;
     private Map<String, EitherModelOrReferenceObject<ExampleObject>> examples;
     private Map<String, EitherModelOrReferenceObject<RequestBodyObject>> requestBodies;
-//    private Map<String, ReferableHeaderObject> headers;
-//    private Map<String, ReferableSecuritySchemaObject> securitySchemas;
-//    private Map<String, ReferableLinkObject> links;
+    private Map<String, EitherModelOrReferenceObject<HeaderObject>> headers;
+    private Map<String, EitherModelOrReferenceObject<SecuritySchemeObject>> securitySchemas;
+    private Map<String, EitherModelOrReferenceObject<LinkObject>> links;
 //    private Map<String, ReferableCallbackObject> callbacks;
 }
