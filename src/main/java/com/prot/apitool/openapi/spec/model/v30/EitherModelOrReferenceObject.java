@@ -1,6 +1,7 @@
 package com.prot.apitool.openapi.spec.model.v30;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.prot.apitool.openapi.spec.model.v30.sedes.EitherModelOrReferenceObjectDeserializer;
@@ -14,14 +15,21 @@ import javax.validation.constraints.NotNull;
 @JsonDeserialize(using = EitherModelOrReferenceObjectDeserializer.class)
 @JsonSerialize(using = EitherModelOrReferenceObjectSerializer.class)
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public final class EitherModelOrReferenceObject<T extends SpecModel> implements SpecModel {
+//    @JsonUnwrapped
     @Nullable
     private T modelObject;
+
     @Nullable
     private ReferenceObject referenceObject;
 
     public static <X extends SpecModel> EitherModelOrReferenceObject<X> modelObject(X modelObject) {
         return new EitherModelOrReferenceObject<>(modelObject, null);
+    }
+
+    public static <X extends SpecModel> EitherModelOrReferenceObject<X> reference(String ref) {
+        return referenceObject(new ReferenceObject(ref));
     }
 
     public static <X extends SpecModel> EitherModelOrReferenceObject<X> referenceObject(ReferenceObject referenceObject) {

@@ -7,6 +7,6 @@ import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
-public abstract class SpecExtension {
+public abstract class SpecExtension implements ISpecExtension {
     private List<ExtensionProperty> extensionProperties;
 }
